@@ -1,0 +1,22 @@
+# Личные данные и секреты: НИКОГДА не загружай их на GitHub
+player_state.json
+telegram_config.json
+tg_session*
+*.session
+*.session-journal
+
+# Скачанные треки, фоны, экспорт
+music/
+tg_cache/
+sc_cache/
+backgrounds/
+exports/
+
+# Служебное
+__pycache__/
+*.pyc
+.venv/
+venv/
+build/
+.idea/
+.vscode/

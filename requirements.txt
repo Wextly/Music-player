@@ -1,0 +1,7 @@
+# Для запуска на компьютере: pip install -r requirements.txt
+flet
+flet-audio
+mutagen
+telethon
+yt-dlp
+pillow
