@@ -21,6 +21,10 @@
      "uses": "actions/checkout@v4"
     },
     {
+     "name": "Проверить, что файлы проекта на месте",
+     "run": "test -f pyproject.toml || { echo \"::error::В корне репозитория нет pyproject.toml. Файлы проекта загружены не туда или не все\"; ls -la; exit 1; } ; test -f src/main.py || { echo \"::error::Нет файла src/main.py. Папка src не загружена или лежит не в корне\"; ls -la; exit 1; } ; echo \"Файлы проекта на месте:\" ; ls -la . src"
+    },
+    {
      "name": "Установить Python",
      "uses": "actions/setup-python@v5",
      "with": {
@@ -37,7 +41,7 @@
     },
     {
      "name": "Установить Flet (версия берётся из pyproject.toml)",
-     "run": "VER=\"$(python scripts/flet_version.py)\" ; if [ -n \"$VER\" ]; then pip install \"flet==$VER\"; else pip install flet; fi ; flet --version"
+     "run": "VER=$(grep -oP 'flet==\\K[0-9A-Za-z.+-]+' pyproject.toml | head -1) ; if [ -n \"$VER\" ]; then pip install \"flet==$VER\"; else pip install flet; fi ; flet --version"
     },
     {
      "name": "Кэш Flutter и Gradle (ускоряет следующие сборки)",
