@@ -4,8 +4,9 @@ version = "1.0.0"
 description = "Wextly Music Player"
 requires-python = ">=3.10"
 # Эти пакеты ставятся на телефон при сборке APK.
+# telethon (Telegram) сюда НЕ входит: его зависимость pyaes не собирается для Android.
 # Версии можно «зафиксировать» командой: python scripts/pin_versions.py
-dependencies = ["flet==1.1.0", "flet-audio==1.1.0", "mutagen==1.48.1", "telethon==1.45.0", "yt-dlp==2026.8.19"]
+dependencies = ["flet==1.1.0", "flet-audio==1.1.0", "mutagen==1.48.1", "yt-dlp==2026.8.19"]
 
 [tool.flet]
 product = "Wextly Player"
