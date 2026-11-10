@@ -54,7 +54,7 @@
     },
     {
      "name": "Собрать APK",
-     "run": "flet build apk --verbose"
+     "run": "printf 'y\\n%.0s' $(seq 1 200) | flet build apk --verbose"
     },
     {
      "name": "Сохранить APK как артефакт сборки",
